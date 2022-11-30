@@ -1,13 +1,13 @@
 # FTC-DOCS
 Documentation for the 2022/2023 FTC Saltfleet robotics team code.
 JOIN ROBOTICS!
-## pre-requisites
+# pre-requisites to setup
 * Two android phones with the FTC challenge app installed.
 * Turn on usb debugging on both phones (tap the build option in phone information in the settings 9 times).
 * *(preferred)* Get a laptop setup for coding.
 * *(preferred)* Basic knowledge in Java programming and OOP.
 * Expansion / control hub, basic motors, sensor and/or other items i.e servos and motor encoders.
-## basic setup up for the expansion hub
+# using the expansion hub
 ### first steps
   - Connect a battery to the hub via an XT connector (one that lines up with the battery port on the hub and the battery).
   - Connect the phone that is not the driver (wallpaper that does not say driver station on our current phones) to the expansion hub via a mini USB on the expansion hub, and convert to micro usb using a usb to micro-usb connector.
