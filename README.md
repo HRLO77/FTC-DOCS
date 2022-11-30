@@ -10,11 +10,12 @@ JOIN ROBOTICS!
 ## basic setup up for the expansion hub
 ### first steps
   - Connect a battery to the hub via an XT connector (one that lines up with the battery port on the hub and the battery).
-  - Connect the phone that is not the driver (wallpaper that does not say driver station on our current phones) to the expansion hub via a mini USB on the expansion hub,
-  - and convert to micro usb using a usb to micro-usb connector.
-  - From here, the phone wired to the hub should start a wifi network. To see the password, press options, and Program and Manage. Wait a few minutes for it to load,
-  - and it should display network info (like password). Connect the driver station to this network *(and laptop as well, if you have one.)*
-  - To connect the driver station, connect the gamepad via a usb to micro-usb connector to the driver station.
-  - To sync up the gamepad as player one or player two, press start+a or start+b.
+  - Connect the phone that is not the driver (wallpaper that does not say driver station on our current phones) to the expansion hub via a mini USB on the expansion hub, and convert to micro usb using a usb to micro-usb connector.
+  - From here, the phone wired to the hub should start a wifi network. To see the password, press options, and "Program and Manage". Wait a few minutes for it to load, and it should display network info (like password). Connect the driver station to this network *(and laptop as well, if you have one.)*
+  - To connect the driver station to a gamepad, connect the gamepad via a usb to micro-usb connector to the driver station.
+  - To sync up the gamepad as player one, press start+a.
+### programming
+To start programming, either on the phone wired to the hub *(or laptop if setup in first steps)* follow these steps.
+On the laptop / PC, connect to the IP *()*
 ### connecting hardware devices
   
