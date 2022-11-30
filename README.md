@@ -14,8 +14,10 @@ JOIN ROBOTICS!
   - From here, the phone wired to the hub should start a wifi network. To see the password, press options, and "Program and Manage". Wait a few minutes for it to load, and it should display network info (like password). Connect the driver station to this network *(and laptop as well, if you have one.)*
   - To connect the driver station to a gamepad, connect the gamepad via a usb to micro-usb connector to the driver station.
   - To sync up the gamepad as player one, press start+a.
-### programming
+### pre-requisites to programming
 To start programming, either on the phone wired to the hub *(or laptop if setup in first steps)* follow these steps.
-On the laptop / PC, connect to the IP *()*
+On the laptop / PC, connect to the IP *(our current ip for our expansion  hub is 192.168.49.1)*, (you must be connected to the hub's transmitted wifi network) and route to the port specified *(usually 8080)*. For example, go to `http://192.168.49.1:8080` to program on a PC / laptop. *(You must use the http protocol because https encryption is not supported.)*
+#### programming
+test
 ### connecting hardware devices
   
