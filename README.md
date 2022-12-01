@@ -16,7 +16,7 @@ JOIN ROBOTICS!
   - To connect the driver station to a gamepad, connect the gamepad via a usb to micro-usb connector to the driver station.
   - To sync up the gamepad as player one, press start+a.
 #### Troubleshooting.
-To check blinking lights, refer to [the documention][https://docs.revrobotics.com/duo-control/troubleshooting-the-control-system/led-blink-codes]
+To check blinking lights, refer to [this](https://docs.revrobotics.com/duo-control/troubleshooting-the-control-system/led-blink-codes)
 ### pre-requisites to programming
 To start programming, either on the phone wired to the hub *(or laptop if setup in first steps)* follow these steps.
 On the laptop / PC, connect to the IP *(our current ip for our expansion  hub is 192.168.49.1)*, (you must be connected to the hub's transmitted wifi network) and route to the port specified *(usually 8080)*. For example, go to `http://192.168.49.1:8080` to program on a PC / laptop. *(You must use the http protocol because https encryption is not supported.)*
