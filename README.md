@@ -8,7 +8,7 @@ JOIN ROBOTICS!
 * *(preferred)* Basic knowledge in Java programming and it's implementation of OOP.
 * *(preferred)* Basic knowledge in algorithms, universal programming concepts and data structures.
 * Expansion / control hub, basic motors, sensor and/or other items i.e servos and motor encoders.
-# using the expansion hub
+# using your hub
 ### first steps
   - Connect a battery to the hub via an XT connector (one that lines up with the battery port on the hub and the battery).
   - Connect the phone that is not the driver (wallpaper that does not say driver station on our current phones) to the expansion hub via a mini USB on the expansion hub, and convert to micro usb using a usb to micro-usb connector.
