@@ -69,6 +69,7 @@ When connected to the programming page of the hub (or the wired phone). You will
   Save your OP mode by pressing **Build all** to compile, and run it by seleting it on the **Driver station**, initializing and starting it.
 
 Refer to [this](https://docs.revrobotics.com/duo-control/programming/hello-robot-introduction-to-programming) for a more in-depth tutorial on programming.
+And [this](https://ftctechnh.github.io/ftc_app/doc/javadoc/) for documentation on the API.
 ## connecting hardware devices
 Click the **Configure robot** on the phone wired to the hub, click **edit** on the current mode picked, and click the device you have connected. From there, add names *(And types of hardware)* to different ports on the hub, I2C buses, Analog ports, Motors and encoders, etc.
 From there, save the mode and your editor will momentarily update to match the mode (and hardware associated with it) chosen.
