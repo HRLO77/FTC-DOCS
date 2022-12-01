@@ -65,8 +65,9 @@ When connected to the programming page of the hub (or the wired phone). You will
     };  
 };
   ```
-  Also see ./example.java for an example on basic code, and controller.java for code on controlling the robot with the gamepad.
+  Also see gamepad.java for example code on controlling the robot with the gamepad.
   Save your OP mode by pressing **Build all** to compile, and run it by seleting it on the **Driver station**, initializing and starting it.
+  *(NOTE: The Java code in this README and files in this repository may have bugs when compiling because when this is being written, I have no access to executing the code.)*
 
 Refer to [this](https://docs.revrobotics.com/duo-control/programming/hello-robot-introduction-to-programming) for a more in-depth tutorial on programming.
 And [this](https://ftctechnh.github.io/ftc_app/doc/javadoc/) for documentation on the API.
