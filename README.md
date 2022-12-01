@@ -23,16 +23,16 @@ On the laptop / PC, connect to the IP *(our current ip for our expansion  hub is
 ### programming
 When connected to the programming page of the hub (or the wired phone). You will see a few option. One is **Blocks** and another is **On Java**.
 #### Blocks programming
-  The **Blocks** has an interface similar to V2 Scratch. With some key differences being that there are no sprites, and all code is blocking.
+  The **Blocks** editor has an interface similar to V2 Scratch. With some key differences being that there are no sprites, and all code is blocking.
   To start off, create an **OP MODE** (operable mode I think, it's a mode that you can choose in the driver station to execute.) which can be autonomous or teleop (stick with the latter).
-  First part of the code should be checks to make sure the OP MODE is active. Choose a hat block to run with the op mode, and an if-then statement with the boolean being from the linear_op_mode section, **is_op_mode_active** / **op_mode_init**.
+  First part of the code should be checks to make sure the OP MODE is active. Choose a hat block to run with the op mode, and an if-then statement with the boolean being from the linear_op_mode section, **op_mode_running** / **op_mode_init**.
   From here, you can run any code, although it is mostly recommended (unless testing) to use a while-loop with a boolean from the linear_op_mode section, **is_op_mode_active**, and the update_telemetry call at the end to update the telemetry data.
   This way, it makes the code under it run while only the op mode is running, preventing infinite loops and bugs.
   From here, you can move motors or servos from the actuators section, or use sensors from the sensors section *(Adding hardware devices is explained later on)*, and functions, logic, control and variables as well!
   To make the gamepad control the robot, map the *power*, *position*, or other values (dependent on the hardware) to keys on the gamepad in the gamepad section.
   Save your OP mode by pressing **Save OP mode** and run it by seleting it on the **Driver station**, initializing and starting it.
 #### Java programming
-  The **On Java** has an IDE with autofill, typehints, but no import utils (maybe later versions will) that supports all functionality of the Java programming language.
+  The **On Java** editor has an IDE with autofill, typehints, but no import utils (maybe later versions will) that supports all functionality of the Java programming language.
   An example file would be
   ```java
   package org.firstinspires.ftc.teamcode;
