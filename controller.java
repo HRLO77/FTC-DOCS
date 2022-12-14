@@ -1,4 +1,4 @@
-// this file is for a gamepad controlling the robot with port config as specified in the pad_config.yaml
+// this file is for a gamepad controlling the robot with hub port configurations as specified in the pad_config.yaml
 package org.firstinspires.ftc.teamcode;
 // see https://github.com/HRLO77/FTC-DOCS for documentation written by the 2022/2023 Saltfleet robotics club programming team! (Just me :\)
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
