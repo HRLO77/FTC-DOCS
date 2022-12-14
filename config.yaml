@@ -1,0 +1,38 @@
+ports:
+    servo-ports:
+        0:
+            {"claw":"Servo"}
+        1:
+        2:
+        3:
+        4:
+        5:
+    motor-ports:
+        0:
+            {"Motor1": "Tetrix Motor", "encoder": True}
+        1:
+            {"Motor2": "Tetrix Motor", "encoder": True}
+        2:
+            {"arm": "Tetrix Motor", "encoder": True}
+        3:
+    analog-ports:
+        0:
+        1:
+    digital-ports:
+        0:
+        1:
+        2:
+        3:
+    I2C-buses:
+        I2C-bus-1-ports:
+            0:
+            1:
+            2:
+            3:
+    UART-ports:
+        0:
+        1:
+        2:
+        3:
+        
+    
