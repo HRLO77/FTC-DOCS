@@ -1,0 +1,41 @@
+# .yaml files can be used for programmers to configure settings in the op modes.
+# the following is the format for the yaml hub port and hardware configuration files
+ ports:
+    servo-ports:
+        0:
+            {"name":"type"}
+        1:
+        2:
+        3:
+        4:
+        5:
+    motor-ports:
+        0:
+            {"name": "type", "encoder": bool}
+        1:
+        2:
+        3:
+    analog-ports:
+        0:
+          {"name": "type"}
+        1:
+    digital-ports:
+        0:
+          {"name": "type"}
+        1:
+        2:
+        3:
+    I2C-buses:
+        I2C-bus-1-ports:
+            0:
+              {"name": "type"}
+            1:
+            2:
+            3:
+    UART-ports:
+        0:
+          bool
+        1:
+        2:
+        3:
+    
