@@ -21,7 +21,8 @@ public class main extends LinearOpMode { // quadratic op mode when?
     Motor2 = hardwareMap.get(DcMotor.class, "Motor2");
     Motor1 = hardwareMap.get(DcMotor.class, "Motor1");
     arm = hardwareMap.get(DcMotor.class, "arm"); 
-
+    Motor1.setVelocity(20);
+    Motor2.setVelocity(20);
     // Put initialization blocks here.
     waitForStart();  // wait for the robot to start
     if (opModeIsActive()) { // run when instructed to
