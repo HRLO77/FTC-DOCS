@@ -1,5 +1,5 @@
-# .yaml files can be used for programmers to configure settings in the op modes.
-# the following is the format for the yaml hub port and hardware configuration files
+# .yaml files can be used by teams to setup hub ports
+# see the example below
  ports:
     servo-ports:
         0:
