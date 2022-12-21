@@ -4,6 +4,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -22,6 +23,9 @@ public class main extends LinearOpMode { // quadratic op mode when?
     Motor2 = hardwareMap.get(DcMotor.class, "Motor2");
     Motor1 = hardwareMap.get(DcMotor.class, "Motor1");
     arm = hardwareMap.get(DcMotor.class, "arm"); 
+    ((DcMotorEx)arm).setVelocity(100);
+    ((DcMotorEx)Motor1).setVelocity(100);
+    ((DcMotorEx)Motor2).setVelocity(100);
     // Put initialization blocks here.
     waitForStart();  // wait for the robot to start
     if (opModeIsActive()) { // run when instructed to
