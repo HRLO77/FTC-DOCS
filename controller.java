@@ -14,6 +14,7 @@ public class main extends LinearOpMode { // quadratic op mode when?
   private DcMotor Motor2;
   private DcMotor Motor1;
   private DcMotor arm;
+  private double power = 3;
   
   @Override
   public void runOpMode() {
@@ -21,8 +22,6 @@ public class main extends LinearOpMode { // quadratic op mode when?
     Motor2 = hardwareMap.get(DcMotor.class, "Motor2");
     Motor1 = hardwareMap.get(DcMotor.class, "Motor1");
     arm = hardwareMap.get(DcMotor.class, "arm"); 
-    Motor1.setVelocity(20);
-    Motor2.setVelocity(20);
     // Put initialization blocks here.
     waitForStart();  // wait for the robot to start
     if (opModeIsActive()) { // run when instructed to
@@ -31,9 +30,9 @@ public class main extends LinearOpMode { // quadratic op mode when?
       Motor2.setDirection(DcMotorSimple.Direction.REVERSE); // account for weird black-magic fuckery that happens with swapping motor ports.
       while (opModeIsActive()) {
         claw.setPosition(gamepad1.left_stick_x); // The claw is left joystick, left and right
-        arm.setPower(gamepad1.right_stick_x); // The arm is the right joy stick, left and right
-        Motor2.setPower(gamepad1.right_stick_y); // the right tire is the right joystick, up and down
-        Motor1.setPower(gamepad1.left_stick_y); // the left tire is the left joystick, up and down
+        arm.setPower(gamepad1.right_stick_x*power); // The arm is the right joy stick, left and right
+        Motor2.setPower(gamepad1.right_stick_y*power); // the right tire is the right joystick, up and down
+        Motor1.setPower(gamepad1.left_stick_y*power); // the left tire is the left joystick, up and down
       }
     }
   }
