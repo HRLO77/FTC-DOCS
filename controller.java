@@ -17,6 +17,9 @@ public class main extends LinearOpMode { // quadratic op mode when?
   private DcMotor arm;
   private double power = 3;
   private boolean is_claw = false;
+  private float x = 0;
+  private float y = 0;
+  private double dead_zone = 0.33; // 1 third is dead, change according to driver preferences.
   @Override
   public void runOpMode() {
     claw = hardwareMap.get(Servo.class, "claw");  // do not move over to private variable declarations, NullPointerException will occur.
@@ -31,35 +34,35 @@ public class main extends LinearOpMode { // quadratic op mode when?
     waitForStart();  // wait for the robot to start
     if (opModeIsActive()) { // run when instructed to
       // Put run blocks here.
-      claw.scaleRange(0.15, 0.8); // Prevent scaling the servo too far (likely overheating, check regularly.)
       Motor2.setDirection(DcMotorSimple.Direction.REVERSE); // account for weird black-magic fuckery that happens with swapping motor ports.
+      claw.scaleRange(0.305, 0.8); // Prevent scaling the servo too far (likely overheating, check regularly.)
       while (opModeIsActive()) {
         
-        if (gamepad1.a && is_claw){
+        if (gamepad1.a && is_claw){ // A is pressed
           claw.setPosition(0.8);
           is_claw = false;
-          sleep(15);
+          sleep(300);
         }
-        else if (!is_claw and !gamepad1.a){
+        else if (!is_claw and !gamepad1.a){ // A is not pressed
           is_claw = true;
-          claw.setPosition(0.15);
+          claw.setPosition(0.305);
+          sleep(300);
         }
         // snip
         arm.setPower(gamepad1.right_stick_y);
         // snip
-        // dead zone and positions
         x = gamepad1.left_stick_x;
         y = gamepad1.left_stick_y;
-        dead_zone = 0.33; // 1 third is dead, change according to driver preferences.
+        
         // reset
-        if ((x > -dead_zone || x < dead_zone) && (y > -dead_zone || y < dead_zone)){
+        if ((x > -dead_zone && x < dead_zone) && (y > -dead_zone && y < dead_zone)){
           Motor1.setPower(0);
           Motor2.setPower(0);
-          sleep(15); // sleep ms might be too small, change accordingly
+          sleep(300); // sleep ms might be too large, change accordingly
           continue;
         }
         // backward and forward
-        if (x > -dead_zone || x < dead_zone){
+        if (x > -dead_zone && x < dead_zone){
           if (y < -1+dead_zone || y > 1-dead_zone){  // essentially forward or backward
             Motor1.setPower(y);
             Motor2.setPower(y);
@@ -67,19 +70,11 @@ public class main extends LinearOpMode { // quadratic op mode when?
           continue;
         }
         // snip
-        else if (y > -dead_zone || y < dead_zone){
+        else if (y > -dead_zone && y < dead_zone){
           if (x < -1+dead_zone || x > 1-dead_zone){ // essentially left or right
             // dual motor turns here
-            if (x > 0){ // right
-              Motor1.setPower(x);
-              Motor2.setPower(-x);
-                continue;
-            }
-            if (x < 0){ // left
-             Motor1.setPower(-x);
-             Motor2.setPower(x);
-             continue;
-            }
+            Motor1.setPower(-x);
+            Motor2.setPower(x);
           }
         }
       }
