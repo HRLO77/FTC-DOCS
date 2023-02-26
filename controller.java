@@ -8,75 +8,53 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name = "main (main.java compiled)")
-public class main extends LinearOpMode { // quadratic op mode when?
+@TeleOp(name = "controller (controller.java compiled)")
+public class controller extends LinearOpMode { // quadratic op mode when?
 
   private Servo claw;
   private DcMotor Motor2;
   private DcMotor Motor1;
   private DcMotor arm;
   private double power = 3;
-  private boolean is_claw = false;
-  private float x = 0;
-  private float y = 0;
-  private double dead_zone = 0.33; // 1 third is dead, change according to driver preferences.
+  
   @Override
   public void runOpMode() {
     claw = hardwareMap.get(Servo.class, "claw");  // do not move over to private variable declarations, NullPointerException will occur.
     Motor2 = hardwareMap.get(DcMotor.class, "Motor2");
     Motor1 = hardwareMap.get(DcMotor.class, "Motor1");
     arm = hardwareMap.get(DcMotor.class, "arm"); 
-    
-    ((DcMotorEx)arm).setVelocity(150);
-    ((DcMotorEx)Motor1).setVelocity(150);
-    ((DcMotorEx)Motor2).setVelocity(150);
+    ((DcMotorEx)arm).setVelocity(100);
+    ((DcMotorEx)Motor1).setVelocity(100);
+    ((DcMotorEx)Motor2).setVelocity(100);
     // Put initialization blocks here.
     waitForStart();  // wait for the robot to start
     if (opModeIsActive()) { // run when instructed to
       // Put run blocks here.
+      claw.scaleRange(0.15, 1); // Prevent scaling the servo too far (likely overheating, check regularly.)
       Motor2.setDirection(DcMotorSimple.Direction.REVERSE); // account for weird black-magic fuckery that happens with swapping motor ports.
-      claw.scaleRange(0.305, 0.8); // Prevent scaling the servo too far (likely overheating, check regularly.)
       while (opModeIsActive()) {
-        
-        if (gamepad1.a && is_claw){ // A is pressed
-          claw.setPosition(0.8);
-          is_claw = false;
-          sleep(300);
+        if (gamepad1.y){
+            claw.setPosition(1);
+            return;
         }
-        else if (!is_claw and !gamepad1.a){ // A is not pressed
-          is_claw = true;
-          claw.setPosition(0.305);
-          sleep(300);
+        if (gamepad1.right_bumper){
+            claw.setPosition(0.15);
         }
-        // snip
-        arm.setPower(gamepad1.right_stick_y);
-        // snip
-        x = gamepad1.left_stick_x;
-        y = gamepad1.left_stick_y;
-        
-        // reset
-        if ((x > -dead_zone && x < dead_zone) && (y > -dead_zone && y < dead_zone)){
-          Motor1.setPower(0);
-          Motor2.setPower(0);
-          sleep(300); // sleep ms might be too large, change accordingly
-          continue;
+        else{
+            claw.setPosition(0.8);
+        }// The claw is left joystick, left and right
+        Motor2.setPower(gamepad1.right_stick_y); // the right tire is the right joystick, up and down
+        Motor1.setPower(gamepad1.left_stick_y); // the left tire is the left joystick, up and down
+        if (gamepad1.right_trigger != 0){
+            arm.setPower(1);
         }
-        // backward and forward
-        if (x > -dead_zone && x < dead_zone){
-          if (y < -1+dead_zone || y > 1-dead_zone){  // essentially forward or backward
-            Motor1.setPower(y);
-            Motor2.setPower(y);
-          }
-          continue;
+        else if (gamepad1.left_trigger !=0){
+            arm.setPower(-1);
         }
-        // snip
-        else if (y > -dead_zone && y < dead_zone){
-          if (x < -1+dead_zone || x > 1-dead_zone){ // essentially left or right
-            // dual motor turns here
-            Motor1.setPower(-x);
-            Motor2.setPower(x);
-          }
+        else {
+            arm.setPower(0);
         }
+          
       }
     }
   }
