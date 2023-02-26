@@ -15,7 +15,8 @@ public class controller extends LinearOpMode { // quadratic op mode when?
   private DcMotor Motor2;
   private DcMotor Motor1;
   private DcMotor arm;
-  private double power = 3;
+  private boolean toggled = false;
+  
   
   @Override
   public void runOpMode() {
@@ -37,11 +38,13 @@ public class controller extends LinearOpMode { // quadratic op mode when?
             claw.setPosition(1);
             return;
         }
-        if (gamepad1.right_bumper){
+        if (gamepad1.right_bumper && !toggled){
             claw.setPosition(0.15);
+            toggled = true;
         }
-        else{
+        else if ((!gamepad1.right_bumper) && toggled){
             claw.setPosition(0.8);
+            toggled = false;
         }// The claw is left joystick, left and right
         Motor2.setPower(gamepad1.right_stick_y); // the right tire is the right joystick, up and down
         Motor1.setPower(gamepad1.left_stick_y); // the left tire is the left joystick, up and down
